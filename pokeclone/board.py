@@ -28,11 +28,20 @@ class Board:
 
         return display
 
+    def __getitem__(self, index):
+        return self.grid[index]
+
+    def __setitem__(self, key, value):
+        self.grid[key] = value
+
     def update_player_pos(self, offset):
         [ro, co] = offset
         newx = self.px + ro
         newy = self.py + co
         if newx < 0 or newx >= self.l or newy < 0 or newy >= self.w:
+            return False
+
+        if self.grid[newx][newy].on:
             return False
 
         self.grid[self.px][self.py] = Cell()

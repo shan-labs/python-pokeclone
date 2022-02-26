@@ -22,7 +22,7 @@ class Player:
 
     def move(self):
         direction = validate_input(f"Choose: direction ({format_choices(DIRECTION_KEYS)}): ", DIRECTION_KEYS)
-        return DIRECTIONS[direction]
+        return direction, DIRECTIONS[direction]
 
 def initialize_player():
     name = input("Please enter trainer name: ")
