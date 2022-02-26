@@ -5,12 +5,11 @@ if __name__ == '__main__':
     print("Welcome to PokeClone!")
     board = Board(5, 6)
     player = characters.initialize_player()
-    heading = characters.DIRECTIONS["R"]
     board[3][3] = Cell("T")
     while True:
+        print(player)
         print(board)
         valid_move = False
         while not valid_move:
-            heading, new_offset = player.move()
+            new_offset = player.move()
             valid_move = board.update_player_pos(new_offset)
-            print(heading)
