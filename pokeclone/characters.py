@@ -57,8 +57,14 @@ def initialize_player():
         "water": "squirtle",
         "grass": "bulbasaur"
     }
-    element = validate_input(f"Please enter trainer nature ({format_choices(STARTERS.keys())}): ", STARTERS.keys())
-    return Player(name, gender, nature, STARTERS[element])
+    TRUE_STARTERS = {
+        "fire": "charmander",
+        "water": "squirtle",
+        "grass": "bulbasaur",
+        "electric": "pikachu"
+    }
+    element = validate_input(f"Please enter trainer nature ({format_choices(STARTERS.keys())}): ", TRUE_STARTERS.keys())
+    return Player(name, gender, nature, TRUE_STARTERS[element])
 
 class CPU(Trainer):
     def __init__(self, pokelist):
